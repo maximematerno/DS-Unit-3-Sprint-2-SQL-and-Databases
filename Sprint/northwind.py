@@ -10,12 +10,19 @@ cursor = conn.cursor()
 
 # What are the ten most expensive items (per unit price) in the database?
 ten_most_expensive_query = '''
-SELECT COUNT(*) FROM Product
-ORDER BY UnitPrice DESC
-LIMIT 10
-'''
+    SELECT ProductName, UnitPrice FROM Product
+    ORDER BY UnitPrice DESC
+    LIMIT 10;'''
 ten_most_expensive = cursor.execute(ten_most_expensive_query).fetchall()
-print(f' The ten most expensive items are {ten_most_expensive} ')
+print(' The ten most expensive items and their prices :')
+print('------------------------------------------------')
+for info in ten_most_expensive:
+    item = (info[0] + ':').ljust(24)
+    price = info[1]
+    print(f'{item} {price}')
+
+# ten_most_expensive = cursor.execute(ten_most_expensive_query).fetchall()
+# print(f' The ten most expensive items are : {ten_most_expensive}')
 
 
 # What is the average age of an employee at the time of their hiring?
