@@ -21,9 +21,6 @@ for info in ten_most_expensive:
     price = info[1]
     print(f'{item} {price}')
 
-# ten_most_expensive = cursor.execute(ten_most_expensive_query).fetchall()
-# print(f' The ten most expensive items are : {ten_most_expensive}')
-
 
 # What is the average age of an employee at the time of their hiring?
 average_age_query = '''
@@ -54,9 +51,13 @@ INNER JOIN Supplier ON Product.SupplierID = Supplier.ID
 ORDER BY UnitPrice DESC
 LIMIT 10;
 '''
-expensive_item_supplier = cursor.execute(
-    expensive_item_supplier_query).fetchall()
-print(f' The ten most expensive items with their supplier are {expensive_item_supplier}')
+expensive_item_supplier = cursor.execute(expensive_item_supplier_query).fetchall()
+print(' The ten most expensive items with their supplier are:')
+print('--------------------------------------------------')
+for info in expensive_item_supplier:
+    item = (info[0] + ':').ljust(24)
+    supplier = info[1]
+    print(f'{item} {supplier}')
 
 
 # What is the largest category (by number of unique products in it)?
