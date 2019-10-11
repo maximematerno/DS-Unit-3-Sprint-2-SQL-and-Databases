@@ -6,9 +6,9 @@ Script queries titanic data from elephantSQL
 """
 
 # Database info
-dbname = 'bbhudnlj'
-user = 'bbhudnlj'
-password = 'wvVskx2m_CkKzdz3ET4npCKU3UxkN3hR'
+dbname = 'USER'
+user = 'USER'
+password = 'PASSWORD'
 host = 'salt.db.elephantsql.com'
 
 # Initalize connection and cursor to db 
